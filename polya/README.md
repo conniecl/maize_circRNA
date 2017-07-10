@@ -1,12 +1,15 @@
 polyA-seleced data process
+===========================
 These scripts have been tested on various Linux distributions. Before they can be run, make sure that the following prerequisites are installed:
-Perl
-Python
-Bowtie2
-KNIFE
-TRF
-BLAT
+>Perl  
+>Python  
+>Bowtie2  
+>KNIFE  
+>TRF  
+>BLAT  
 To identity circular RNA form polyA-seleced dataset, run the following commands:
+```
+#MAKE DB
 python makeExonDB.py -f ../circularRNApipeline_Standalone/index/Zea_mays_genome.fa -a /public/home/lchen/reference/test.gtf -o ./cds
 python makeJunctionsAndWriteFasta.py -w 1000000 -e cds/exons -r cds/records -f cds/fastas –v
 cat cds/fastas/*.fa > Zea_mays_cds.fa
@@ -29,4 +32,4 @@ perl down_repeat_filter.pl
 trf Zea_mays_genome.fa 2 7 7 80 10 50 500 -f -d -m
 perl trf_gain.pl
 perl filter_trf.pl
-
+```
