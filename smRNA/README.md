@@ -1,3 +1,5 @@
+This folder contain the scripts for smRNA analysis.
+```
 fastq-dump SRR2155397.sra
 ~/software/fastx_toolkit-0.0.14/bin/fastq_quality_filter -q 20 -p 100 -i SRR2155397.fastq -o SRR2155397_filter_20.fq
 fastqc  SRR2155397_filter_20.fq
@@ -17,3 +19,4 @@ do
 samtools view SRR2155397_${len}bp.sort.bam $i;
 done >SRR2155397_${len}bp.unrcp.sam
 perl L1_tpm.pl SRR2155397_${len}bp circ_junction_un_rcp.L1.rand unrcp
+```
