@@ -20,7 +20,10 @@ python limitFasta.py -s Zea_mays_cds.fa -o cds/fastas/ -t rev -p _junctions_rev
 cat cds/fastas/Zea_mays_cds_junctions_rev.fa cds/fastas/Zea_mays_cds_junctions_dup.fa > Zea_mays_cds_junctions_scrambled.fa
 #circRNA prediction
 sh /software/KNIFE-master/circularRNApipeline_Standalone/completeRun.sh /RNA complete /software/KNIFE-master/circularRNApipeline_Standalone ww 13 maize_phred33 circReads 100 > ww.log
+```
+
 To filter the false positive cirular RNAs, run the following scripts 
+```
 perl get_circ.pl
 perl combine.pl
 perl first_filter.pl
