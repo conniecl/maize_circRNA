@@ -16,6 +16,6 @@ rcp<-data[which(data$rcp=="with"),]
 type<-c("with","without")
 mean<-c(mean(rcp$earheight),mean(norcp$earheight))
 sd<-c(sd(rcp$earheight),sd(norcp$earheight))
-data<-data.frame(type,mean,sd)
-p<-ggplot(data,aes(x=type,y=mean,fill=type))+geom_bar(stat="identity",width = .5)+geom_errorbar(aes(ymin=mean-sd,ymax=mean+sd),width=.1,position = "dodge")+scale_fill_manual(values=c("red","blue"))+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))
+data_p<-data.frame(type,mean,sd)
+p<-ggplot(data_p,aes(x=type,y=mean,fill=type))+geom_bar(stat="identity",width = .5)+geom_errorbar(aes(ymin=mean-sd,ymax=mean+sd),width=.1,position = "dodge")+scale_fill_manual(values=c("red","blue"))+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))
 ggsave(p,filename = "fig7e.svg",height = 4,width = 6)
