@@ -51,7 +51,7 @@ cuffquant -o ./b73_quant_b -p 20 -b bowtie2_index/Zea_mays_genome.fa -u Zea_mays
 cuffquant -o ./b73_quant_a -p 20 -b bowtie2_index/Zea_mays_genome.fa -u Zea_mays_genes.gtf RNA/wwa/tophat_out/accepted_hits.bam
 cuffnorm -p 20 -o b73_norm Zea_mays_genes.gtf b73_quant_a/abundances.cxb b73_quant_b/abundances.cxb
 ```
-### parent gene expression comparsion##
+###parent gene expression comparsion##
 ```
 perl rm_circ_exp.pl
 perl rand_gene.pl
