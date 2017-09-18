@@ -56,9 +56,7 @@ cuffnorm -p 20 -o b73_norm Zea_mays_genes.gtf b73_quant_a/abundances.cxb b73_qua
 perl rm_circ_exp.pl
 perl rand_gene.pl
 perl cal_avglen.pl
-```
 ### plot by R
-```
 library(ggplot2)
 data<-read.table("geneexp_cmp.plot",header=T)
 fig<-ggplot(data)+geom_density(aes(x=log(exp,10),fill=type,colour=type),alpha=1/3)+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))+scale_fill_manual(values=c("red","blue"))+scale_colour_manual(values=c("red","blue"))+xlim(c(-5,5))
