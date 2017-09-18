@@ -1,0 +1,6 @@
+library(ggplot2)
+setwd("")
+data<-read.table("repeat_rcp.txt",header=T)
+cor<-c("#ffd5d5","#ffd5d5","#ffd5d5","#ff8080","#ff8080","#ff8080","#ff8080","#ff8080","#ff2a2a","#ff2a2a","#ff2a2a","#ff2a2a","#aa0000","#aa0000")
+p<-ggplot(data,aes(x=factor(repeat.,levels = data[order(data$count),]$repeat.),y=count))+geom_bar(aes(fill = factor(repeat.,levels = data[order(data$count),]$repeat.)),stat="identity",width=0.8)+scale_fill_manual(values = cor)+theme_bw()+theme(legend.position = 'none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))+scale_y_continuous(breaks = seq(0,1000,100),labels = seq(0,1000,100))
+ggsave(p,filename="repeat_rcp_new.svg",height = 5,width = 8)
