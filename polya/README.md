@@ -22,7 +22,7 @@ cat cds/fastas/Zea_mays_cds_junctions_rev.fa cds/fastas/Zea_mays_cds_junctions_d
 sh /software/KNIFE-master/circularRNApipeline_Standalone/completeRun.sh /RNA complete /software/KNIFE-master/circularRNApipeline_Standalone ww 13 maize_phred33 circReads 100 > ww.log
 ```
 
-To filter the false positive cirular RNAs, run the following scripts 
+To filter the false positive cirular RNAs, run the following scripts step by step
 ```
 perl get_circ.pl
 perl combine.pl
