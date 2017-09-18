@@ -1,6 +1,6 @@
 #!usr/bin/perl -w
 open GFF,"<Zea_mays.AGPv3.26.gff3" or die "cannot open the file $!";
-open OUT,">Zea_mays.AGPv3.26_genelen.gff3" or die "cannot open the file $!";
+open OUT,">Zea_mays_gene.length" or die "cannot open the file $!";
 readline GFF;
 while(<GFF>)
 {
