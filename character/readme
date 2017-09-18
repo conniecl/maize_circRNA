@@ -26,4 +26,4 @@ ggsave(fig,filename="exonlength_cmp.svg",height=5,width = 5)
 ####flanking intron comparsion##
 perl junction_flanking.pl
 perl flanking_len.pl
-perl rm_circfgene.pl
+perl rm_circ_fgene.pl
