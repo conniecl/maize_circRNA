@@ -27,3 +27,10 @@ ggsave(fig,filename="exonlength_cmp.svg",height=5,width = 5)
 perl junction_flanking.pl
 perl flanking_len.pl
 perl rm_circ_fgene.pl
+perl rand_intron.pl
+perl cal_avglen.pl
+### plot by R
+library(ggplot2)
+data<-read.table("flankingintron_cmp.plot",header=T)
+fig<-ggplot(data)+geom_boxplot(aes(x=factor(type,levels=c("linear","circular")),y=log(length,10),fill=type),outlier.size = 0.5)+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))+scale_fill_manual(values=c("red","blue"))
+ggsave(fig,filename="flanking_intron_length_cmp.svg",height=5,width = 5)
