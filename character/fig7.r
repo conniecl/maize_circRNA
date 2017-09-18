@@ -1,12 +1,12 @@
 ##fig7c##
 library(ggplot2)
 data<-read.table("C:/Users/lchen/Desktop/fig7c.txt",header=T)
-p<-ggplot(data)+geom_boxplot(aes(x=rcp,y=log(circ,10),fill=rcp))+scale_fill_manual(values=c("red","blue"))+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))
+p<-ggplot(data)+geom_boxplot(aes(x=rcp,y=circ,fill=rcp),outlier.colour = "NA",outlier.fill = "NA")+ylim(0.0,0.003)+scale_fill_manual(values=c("red","blue"))+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))
 ggsave(p,filename = "fig7c.svg",height = 4,width = 6)
 
 ##fig7d##
 data<-read.table("C:/Users/lchen/Desktop/fig7d.txt",header=T)
-p<-ggplot(data,aes(x=circ,y=linear))+geom_point(fill="red",size=4,shape=21,color="darkgrey",alpha=3/5,stroke=1.5)+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))
+p<-ggplot(data,aes(x=circ,y=linear))+geom_smooth(method = "lm",se=FALSE, color="black",formula = y~x)+geom_point(fill="red",size=4,shape=21,color="darkgrey",alpha=3/5,stroke=1.5)+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))
 ggsave(p,filename = "fig7d.svg",height = 4,width = 6)
 
 ##fig7e##
