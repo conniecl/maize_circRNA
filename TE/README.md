@@ -7,4 +7,5 @@ perl junction_te.pl
 perl rand_flanking_te.pl $type $number #differnt postion(type), same number of circular RNA(number)
 perl calculte.pl $type
 perl rcpL1_linear.pl
+perl L1_junction_info.pl
 ```
