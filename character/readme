@@ -1,3 +1,28 @@
+###gene length comparsion###
+perl b73_genelength.pl
 perl rm_circgene.pl
 perl rand_gene.pl
 perl cal_avglen.pl
+perl plot.pl
+### plot by R
+library(ggplot2)
+data<-read.table("genelength_cmp.plot",header=T)
+fig<-ggplot(data)+geom_boxplot(aes(x=factor(type,levels=c("linear","circular")),y=log(length,10),fill=type),outlier.size = 0.5)+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))+scale_fill_manual(values=c("red","blue"))
+ggsave(fig,filename="gene_length_cmp.svg",height=5,width = 5)
+
+
+###exon length comparsion##
+perl b73_exonlen.pl
+perl rand_gene.pl ###change the input file， B73 gene length to exon length
+perl cal_avglen.pl 
+perl cal_circ_exon.pl
+### plot by R
+library(ggplot2)
+data1<-read.table("exon_lengthcmp.plot",header=T)
+data2<-read.table("exon_len_avg.plot",header=T)
+fig<-ggplot()+geom_violin(data=data1,aes(x=factor(type,levels=c("linear","circular","mutil","single")),y=log(length,10),color=type))+geom_point(data=data2,aes(x=factor(type,levels=c("linear","circular","mutil","single")),y=log(length,10),color=type))+theme_bw()+theme(legend.position='none',panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),axis.line = element_line(colour = "black"))+scale_fill_manual(values=c("red","blue","red","red"))
+ggsave(fig,filename="exonlength_cmp.svg",height=5,width = 5)
+
+####flanking intron comparsion##
+perl flanking_len.pl
+
